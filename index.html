@@ -1,1 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lumière Dental — Premium Dentist</title>
+<meta name="description" content="Modern, pain-free dentistry. Book your appointment today." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['Playfair Display', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+        colors: {
+          primary: '#0d9488',
+          secondary: '#14b8a6',
+          accent: '#06b6d4',
+        },
+        animation: {
+          'float': 'float 6s ease-in-out infinite',
+          'fade-in': 'fadeIn 1s ease-in',
+          'slide-up': 'slideUp 0.8s ease-out',
+        },
+        keyframes: {
+          float: {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-20px)' },
+          },
+          fadeIn: {
+            '0%': { opacity: '0' },
+            '100%': { opacity: '1' },
+          },
+          slideUp: {
+            '0%': { transform: 'translateY(30px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-serif { font-family: 'Playfair Display', serif; }
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(240, 253, 250, 1) 0%, rgba(204, 251, 241, 0.5) 100%);
+  }
+  .wa-ping { animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite; }
+  @keyframes ping { 75%,100% { transform: scale(1.8); opacity: 0; } }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
 
+<!-- ============================================================
+     ✏️ EDIT EVERYTHING HERE - All content in one place
+     ============================================================ -->
+<script>
+const CONTENT = {
+  brand: {
+    name: "Lumière Dental",
+    phone: "+1 (555) 123-4567",
+    email: "hello@lumieredental.com",
+    address: "221B Baker Street, Suite 4, New York, NY 10001",
+    hours: "Mon – Sat · 9:00 AM – 7:00 PM",
+  },
+  nav: [
+    { label: "Home", href: "#home" },
+    { label: "Services", href: "#services" },
+    { label: "Reviews", href: "#reviews" },
+    { label: "Contact", href: "#contact" },
+  ],
+  hero: {
+    badge: "✨ Now accepting new patients",
+    title: "Your smile, our masterpiece.",
+    subtitle: "Modern, pain-free dentistry delivered by a team that genuinely cares. From routine cleanings to full smile makeovers — we've got you covered.",
+    ctaPrimary: { label: "Book Appointment", href: "#appointment" },
+    ctaSecondary: { label: "Explore Services", href: "#services" },
+    stats: [
+      { value: "15+", label: "Years of experience" },
+      { value: "8k+", label: "Happy patients" },
+      { value: "4.9★", label: "Average rating" },
+    ],
+  },
+  services: [
+    { icon: "tooth", title: "General Dentistry", desc: "Check-ups, cleanings, fillings and preventive care to keep your smile healthy for life." },
+    { icon: "sparkles", title: "Teeth Whitening", desc: "Professional in-office whitening for a brighter, more confident smile in just one visit." },
+    { icon: "gem", title: "Cosmetic Dentistry", desc: "Veneers, bonding and smile design tailored to your facial features and personality." },
+    { icon: "wrench", title: "Orthodontics", desc: "Invisible aligners and modern braces for straighter teeth without compromising aesthetics." },
+    { icon: "shield", title: "Dental Implants", desc: "Permanent, natural-looking tooth replacement using state-of-the-art titanium implants." },
+    { icon: "baby", title: "Pediatric Care", desc: "Gentle, fun dental visits designed to make kids feel comfortable and excited about oral health." },
+  ],
+  reviews: [
+    { name: "Sarah Mitchell", role: "Patient since 2021", rating: 5, text: "Absolutely the best dental experience I've ever had. The team is warm, professional, and made me feel completely at ease." },
+    { name: "David Chen", role: "Invisalign patient", rating: 5, text: "Six months of Invisalign and the results are stunning. Dr. and the staff explained every step." },
+    { name: "Emma Rodriguez", role: "Family patient", rating: 5, text: "We bring our whole family here — including our 6-year-old. They are patient, gentle and incredibly skilled." },
+  ],
+  map: {
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.18!2d-73.9857!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMDguNSJX!5e0!3m2!1sen!2sus!4v1700000000000",
+  },
+  whatsapp: {
+    number: "15551234567",
+    message: "Hi! I'd like to book an appointment.",
+  },
+  appointment: {
+    title: "Book your visit",
+    subtitle: "Fill out the form and we'll confirm your appointment within 24 hours.",
+    submitLabel: "Request Appointment",
+  },
+  footer: {
+    copyright: "© 2026 Lumière Dental. All rights reserved.",
+  },
+};
+</script>
+
+<!-- SVG ICONS LIBRARY -->
+<script>
+const ICONS = {
+  tooth: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.22 11.29a9 9 0 0 1 15.56 0c.55 1.2.82 2.5.82 3.71 0 3.5-2.5 7-5 7-1.5 0-2.5-1-3.5-2-1 1-2 2-3.5 2-2.5 0-5-3.5-5-7 0-1.21.27-2.51.82-3.71z"/></svg>`,
+  sparkles: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>`,
+  gem: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>`,
+  wrench: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+  shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  baby: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M12 8v4"/><path d="M8 16c0-2.2 1.8-4 4-4s4 1.8 4 4"/><path d="M9 20v2"/><path d="M15 20v2"/><path d="M12 20v2"/></svg>`,
+  phone: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>`,
+  mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
+  mapPin: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+  clock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  star: `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+  arrow: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
+  menu: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`,
+  close: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+  whatsapp: `<path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.46 0 .1 5.36.1 11.94c0 2.1.55 4.15 1.6 5.96L0 24l6.26-1.64a11.94 11.94 0 0 0 5.78 1.47h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.47-8.41zM12.05 21.8h-.01a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.72.97 1-3.62-.23-.38a9.86 9.86 0 0 1-1.51-5.24c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.85-9.91 9.85zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/>`,
+};
+</script>
+
+<!-- NAVBAR -->
+<header class="fixed top-0 inset-x-0 z-50 glass-dark border-b border-white/10">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white">
+        <div class="w-6 h-6">${ICONS.tooth}</div>
+      </div>
+      <span id="brandName" class="font-serif font-bold text-2xl text-white tracking-tight"></span>
+    </a>
+    <ul id="navList" class="hidden md:flex items-center gap-8"></ul>
+    <a id="navCta" href="#appointment" class="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-6 py-2.5 rounded-full font-medium text-sm transition shadow-lg shadow-teal-500/30"></a>
+    <button id="menuBtn" class="md:hidden p-2 text-white" aria-label="Menu">
+      <div class="w-6 h-6">${ICONS.menu}</div>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="hidden md:hidden glass-dark border-t border-white/10 px-6 py-4 space-y-3"></div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden hero-gradient">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-teal-300/20 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+  </div>
+  
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="animate-slide-up">
+      <span id="heroBadge" class="inline-flex items-center gap-2 bg-white/80 backdrop-blur border border-teal-200 text-teal-700 text-sm font-medium px-5 py-2 rounded-full shadow-lg"></span>
+      <h1 id="heroTitle" class="mt-6 font-serif text-5xl md:text-7xl font-bold text-slate-900 leading-tight tracking-tight"></h1>
+      <p id="heroSubtitle" class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl"></p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a id="heroCta1" href="#" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-4 rounded-full font-semibold transition shadow-xl shadow-teal-600/30 transform hover:scale-105"></a>
+        <a id="heroCta2" href="#" class="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 border-2 border-slate-200 px-8 py-4 rounded-full font-semibold transition"></a>
+      </div>
+      <div id="heroStats" class="mt-12 grid grid-cols-3 gap-6 max-w-md"></div>
+    </div>
+    <div class="relative animate-slide-up" style="animation-delay: 0.2s;">
+      <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-teal-900/20">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e1396037b7?w=800&auto=format&fit=crop" 
+             alt="Beautiful smile" 
+             class="w-full h-full object-cover aspect-square">
+        <div class="absolute bottom-6 left-6 right-6 z-20 glass rounded-2xl p-4 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white">
+            <div class="w-6 h-6">${ICONS.star}</div>
+          </div>
+          <div>
+            <div class="font-bold text-white text-sm">4.9 / 5.0 Rating</div>
+            <div class="text-xs text-white/80">Based on 1,200+ reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 bg-white relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto">
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Our Services</span>
+      <h2 class="mt-3 font-serif text-4xl md:text-6xl font-bold text-slate-900 tracking-tight">Complete dental care, under one roof</h2>
+      <p class="mt-4 text-slate-600 text-lg">From everyday check-ups to advanced cosmetic procedures — we offer a full range of modern dental services.</p>
+    </div>
+    <div id="servicesGrid" class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="py-24 bg-gradient-to-br from-teal-50 via-cyan-50 to-white relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="relative">
+      <div class="absolute -inset-4 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-[2.5rem] opacity-20 blur-2xl"></div>
+      <div class="relative rounded-[2rem] overflow-hidden shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1629909615957-be5e654719cc?w=800&auto=format&fit=crop" 
+             alt="Modern dental clinic" 
+             class="w-full h-full object-cover aspect-[4/3]">
+      </div>
+    </div>
+    <div>
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Why Choose Us</span>
+      <h2 class="mt-3 font-serif text-4xl md:text-5xl font-bold text-slate-900">Experience dentistry like never before</h2>
+      <div class="mt-8 space-y-6">
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white shrink-0">
+            <div class="w-6 h-6">${ICONS.check}</div>
+          </div>
+          <div><h3 class="font-bold text-slate-900 text-lg">State-of-the-art Technology</h3><p class="text-slate-600 mt-1">Latest equipment for precise diagnosis and comfortable treatment</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white shrink-0">
+            <div class="w-6 h-6">${ICONS.check}</div>
+          </div>
+          <div><h3 class="font-bold text-slate-900 text-lg">Personalized Care</h3><p class="text-slate-600 mt-1">Treatment plans tailored to your unique needs and goals</p></div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white shrink-0">
+            <div class="w-6 h-6">${ICONS.check}</div>
+          </div>
+          <div><h3 class="font-bold text-slate-900 text-lg">Comfort First</h3><p class="text-slate-600 mt-1">Relaxing environment designed to ease dental anxiety</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="py-24 bg-slate-900 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-teal-900/20 to-cyan-900/20"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <span class="text-teal-400 font-semibold text-sm uppercase tracking-widest">Testimonials</span>
+      <h2 class="mt-3 font-serif text-4xl md:text-6xl font-bold text-white tracking-tight">Loved by thousands of patients</h2>
+    </div>
+    <div id="reviewsGrid" class="mt-16 grid md:grid-cols-3 gap-8"></div>
+  </div>
+</section>
+
+<!-- MAP & CONTACT -->
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+    <div class="rounded-[2rem] overflow-hidden shadow-2xl shadow-slate-900/10">
+      <iframe id="mapFrame" title="Clinic location" class="w-full h-full min-h-[450px]" style="border:0" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <div class="flex flex-col justify-center">
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Visit us</span>
+      <h2 class="mt-3 font-serif text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">Come say hello</h2>
+      <p class="mt-4 text-slate-600 text-lg">We'd love to welcome you to our clinic. Reach out any time — our team is here to help.</p>
+      <div id="contactList" class="mt-8 space-y-4"></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT FORM -->
+<section id="appointment" class="py-24 bg-gradient-to-br from-teal-600 via-cyan-600 to-teal-700 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;0.05&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+  <div class="max-w-3xl mx-auto px-6 relative z-10">
+    <div class="text-center">
+      <span class="text-white/80 font-semibold text-sm uppercase tracking-widest">Appointment</span>
+      <h2 id="formTitle" class="mt-3 font-serif text-4xl md:text-6xl font-bold text-white tracking-tight"></h2>
+      <p id="formSubtitle" class="mt-4 text-white/90 text-lg"></p>
+    </div>
+    <form id="appointmentForm" class="mt-12 bg-white rounded-[2rem] p-8 md:p-10 shadow-2xl space-y-5">
+      <div class="grid md:grid-cols-2 gap-5">
+        <input required type="text" name="name" placeholder="Full name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-500 transition" />
+        <input required type="tel" name="phone" placeholder="Phone number" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-500 transition" />
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <input required type="email" name="email" placeholder="Email address" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-500 transition" />
+        <select name="service" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-500 transition"></select>
+      </div>
+      <input required type="date" name="date" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-500 transition" />
+      <textarea rows="4" name="message" placeholder="Anything we should know? (optional)" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-500 transition"></textarea>
+      <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-bold py-5 rounded-xl transition shadow-xl shadow-teal-600/30 transform hover:scale-[1.02]"></button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-300 py-12 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white">
+        <div class="w-6 h-6">${ICONS.tooth}</div>
+      </div>
+      <span id="footerBrand" class="font-serif font-bold text-xl text-white"></span>
+    </div>
+    <p id="footerCopy" class="text-sm text-slate-400"></p>
+    <div id="footerNav" class="flex gap-6 text-sm"></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a id="waBtn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] text-white flex items-center justify-center shadow-2xl shadow-green-600/40 transition hover:scale-110">
+  <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">${ICONS.whatsapp}</svg>
+  <span class="absolute inset-0 rounded-full bg-[#25D366] wa-ping opacity-30"></span>
+</a>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+  // Brand & Nav
+  document.getElementById('brandName').textContent = CONTENT.brand.name;
+  document.getElementById('footerBrand').textContent = CONTENT.brand.name;
+  document.getElementById('footerCopy').textContent = CONTENT.footer.copyright;
+
+  const navList = document.getElementById('navList');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const footerNav = document.getElementById('footerNav');
+  CONTENT.nav.forEach(n => {
+    navList.innerHTML += `<li><a href="${n.href}" class="text-white/80 hover:text-white transition font-medium text-sm">${n.label}</a></li>`;
+    mobileMenu.innerHTML += `<a href="${n.href}" class="block text-white/90 hover:text-white font-medium">${n.label}</a>`;
+    footerNav.innerHTML += `<a href="${n.href}" class="hover:text-white transition">${n.label}</a>`;
+  });
+  document.getElementById('navCta').textContent = CONTENT.hero.ctaPrimary.label;
+
+  document.getElementById('menuBtn').onclick = () => mobileMenu.classList.toggle('hidden');
+  mobileMenu.querySelectorAll('a').forEach(a => a.onclick = () => mobileMenu.classList.add('hidden'));
+
+  // Hero
+  document.getElementById('heroBadge').textContent = CONTENT.hero.badge;
+  document.getElementById('heroTitle').textContent = CONTENT.hero.title;
+  document.getElementById('heroSubtitle').textContent = CONTENT.hero.subtitle;
+  const cta1 = document.getElementById('heroCta1');
+  cta1.href = CONTENT.hero.ctaPrimary.href;
+  cta1.innerHTML = `${CONTENT.hero.ctaPrimary.label} <div class="w-5 h-5">${ICONS.arrow}</div>`;
+  const cta2 = document.getElementById('heroCta2');
+  cta2.href = CONTENT.hero.ctaSecondary.href;
+  cta2.textContent = CONTENT.hero.ctaSecondary.label;
+
+  const statsEl = document.getElementById('heroStats');
+  CONTENT.hero.stats.forEach(s => {
+    statsEl.innerHTML += `<div><div class="text-3xl md:text-4xl font-bold text-slate-900">${s.value}</div><div class="text-sm text-slate-500 mt-1">${s.label}</div></div>`;
+  });
+
+  // Services
+  const servicesGrid = document.getElementById('servicesGrid');
+  CONTENT.services.forEach(s => {
+    servicesGrid.innerHTML += `
+      <div class="group bg-white border border-slate-100 rounded-3xl p-8 hover:border-teal-200 hover:shadow-2xl hover:shadow-teal-900/5 transition-all duration-300 transform hover:-translate-y-2">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 flex items-center justify-center text-teal-600 mb-6 group-hover:scale-110 transition">
+          <div class="w-8 h-8">${ICONS[s.icon]}</div>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900">${s.title}</h3>
+        <p class="mt-3 text-slate-600 leading-relaxed">${s.desc}</p>
+      </div>`;
+  });
+
+  // Reviews
+  const reviewsGrid = document.getElementById('reviewsGrid');
+  CONTENT.reviews.forEach(r => {
+    const stars = Array(r.rating).fill(`<div class="w-5 h-5">${ICONS.star}</div>`).join('');
+    reviewsGrid.innerHTML += `
+      <div class="glass bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition">
+        <div class="flex gap-1 text-amber-400 mb-4">${stars}</div>
+        <p class="text-white/90 leading-relaxed">"${r.text}"</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center text-white font-bold">${r.name.charAt(0)}</div>
+          <div>
+            <div class="font-semibold text-white">${r.name}</div>
+            <div class="text-sm text-white/60">${r.role}</div>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  // Map & Contact
+  document.getElementById('mapFrame').src = CONTENT.map.embedUrl;
+  const contactList = document.getElementById('contactList');
+  const items = [
+    { icon: 'mapPin', label: 'Address', value: CONTENT.brand.address },
+    { icon: 'phone', label: 'Phone', value: CONTENT.brand.phone },
+    { icon: 'mail', label: 'Email', value: CONTENT.brand.email },
+    { icon: 'clock', label: 'Hours', value: CONTENT.brand.hours },
+  ];
+  items.forEach(it => {
+    contactList.innerHTML += `
+      <div class="flex items-start gap-4 p-5 rounded-2xl hover:bg-slate-50 transition">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center text-teal-600 shrink-0">
+          <div class="w-6 h-6">${ICONS[it.icon]}</div>
+        </div>
+        <div><div class="text-sm text-slate-500 font-medium">${it.label}</div><div class="text-slate-900 font-semibold mt-1">${it.value}</div></div>
+      </div>`;
+  });
+
+  // Appointment form
+  document.getElementById('formTitle').textContent = CONTENT.appointment.title;
+  document.getElementById('formSubtitle').textContent = CONTENT.appointment.subtitle;
+  document.getElementById('submitBtn').textContent = CONTENT.appointment.submitLabel;
+
+  const serviceSelect = document.querySelector('select[name="service"]');
+  CONTENT.services.forEach(s => {
+    serviceSelect.innerHTML += `<option value="${s.title}">${s.title}</option>`;
+  });
+
+  document.getElementById('appointmentForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target));
+    const msg = `*New Appointment Request*%0A%0A*Name:* ${data.name}%0A*Phone:* ${data.phone}%0A*Email:* ${data.email}%0A*Service:* ${data.service}%0A*Date:* ${data.date}%0A*Message:* ${data.message || '-'}`;
+    window.open(`https://wa.me/${CONTENT.whatsapp.number}?text=${msg}`, '_blank');
+    e.target.reset();
+    alert('✓ Redirecting to WhatsApp to confirm your appointment!');
+  });
+
+  // WhatsApp button
+  const waBtn = document.getElementById('waBtn');
+  waBtn.href = `https://wa.me/${CONTENT.whatsapp.number}?text=${encodeURIComponent(CONTENT.whatsapp.message)}`;
+</script>
+
+</body>
+</html>
